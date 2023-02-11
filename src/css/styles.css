@@ -18,3 +18,10 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+.input-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
