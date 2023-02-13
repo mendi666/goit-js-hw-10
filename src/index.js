@@ -21,10 +21,10 @@ function onInputChange() {
   } else
     fetchCountries(searchCountryName)
       .then(countryNames => {
-        if (countryNames.length < 2) {
+        if (countryNames.length === 1) {
           createCountrieCard(countryNames);
           Notiflix.Notify.success('Here your result');
-        } else if (countryNames.length < 10 && countryNames.length > 1) {
+        } else if (countryNames.length < 10 && countryNames.length >= 2) {
           createCountrieList(countryNames);
           Notiflix.Notify.success('Here your results');
         } else {
@@ -36,7 +36,9 @@ function onInputChange() {
       })
       .catch(() => {
         clearAll();
-        Notiflix.Notify.failure('Oops, there is no country with that name.');
+        if (searchCountryName != '') {
+          Notiflix.Notify.failure('Oops, there is no country with that name.');
+        }
       });
 }
 
